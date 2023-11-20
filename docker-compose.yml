@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    image: code
+    ports:
+      - "${SERVICE_PORT}:${SERVICE_PORT}"
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    networks:
+      - get-yt-videos-network
+
+networks:
+  get-yt-videos-network:
+    driver: bridge
